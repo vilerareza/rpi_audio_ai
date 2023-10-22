@@ -50,7 +50,7 @@ if __name__ == '__main__':
     parser.add_argument('--text', type = str, required = True)
     parser.add_argument('--output_file', type = str, required = True)
     parser.add_argument('--play', action='store_true', required = False)
-    parser.add_argument('--vol', type = float, default = 0.7, required = False)
+    parser.add_argument('--vol', type = int, default = 7, required = False)
 
     # Parsing
     args = parser.parse_args()
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     play = True
     if not (args.play):
         play = False
-    audio_vol = args.vol
+    audio_vol = (args.vol)/10
 
     # Run
     main(input_text=input_text, 
