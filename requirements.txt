@@ -3,5 +3,5 @@ torchaudio
 soundfile
 transformers
 TTS
-numpy==1.2.4
+numpy==1.24.3
 pygame
