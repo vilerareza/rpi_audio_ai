@@ -23,7 +23,7 @@ def main(in_file, out_dir):
         file_name = os.path.join(out_dir, f'{word}.wav')
         # Generate the audio file
         # Appending fullstop at the end of word
-        word = f'{word}.'
+        word = f'{word.strip()}.'
         print(word)
         '''Synthesize speech and write it to wav file'''
         #wav = tts.tts_to_file(word, file_path=file_name)
