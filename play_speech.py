@@ -7,19 +7,21 @@ import argparse
 import time
 from pygame import mixer
 
-from speech_speaker import SpeechSpeaker
-
 
 def main(audio_path, audio_vol):
-    
+
+    # Initialize pygame mixer
+    mixer.init()
+    # Loading the audio
+    mixer.music.load(audio_path)
+    # Setting the volume
+    mixer.music.set_volume(audio_vol)
+    # Play the audio file
+
     print ('Connect speaker device to 3.5mm stereo audio jack at the RPi')
-    
-    # Initialize speech speaker object
-    speech_speaker = SpeechSpeaker()
-    # Load the audio file to the speech speaker
-    speech_speaker.load(audio_path=audio_path)
+
     while True:
-        speech_speaker.play(audio_vol=audio_vol)
+        mixer.music.play()
         query = input("Press 'r' to play again or 'q' to quit: ")
         if query == 'q':
             break
@@ -33,6 +35,7 @@ if __name__ == '__main__':
     parser.add_argument('--input_file', type = str, required = True)
     parser.add_argument('--vol', type = int, default=7, required = False)
     
+
     # Parsing
     args = parser.parse_args()
     # Path to audio_file
