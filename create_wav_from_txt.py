@@ -14,14 +14,12 @@ def main(in_file, out_dir):
     # Get device type to configure pytorch inference
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    # Initialize single speaker tts object: tacotron model - english language - ljspeech dataset 
-    # The model will be downloaded at the first time
-    tts = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=True).to(device)
-
     for word in tqdm(words):
         # Prepare the file name for audio file
         file_name = os.path.join(out_dir, f'{word}.wav')
         # Generate the audio file
+        # Initialize single speaker tts object: tacotron model - english language - ljspeech dataset 
+        tts = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=True).to(device)
         '''Synthesize speech and write it to wav file'''
         wav = tts.tts_to_file(word, file_path=file_name)
         time.sleep(1)
