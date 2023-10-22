@@ -39,7 +39,7 @@ if __name__ == '__main__':
     # Parsing
     args = parser.parse_args()
     # Path to audio_file
-    audio_path = args.file
+    audio_path = args.input_file
     # Audio volume
     audio_vol = args.vols
 
