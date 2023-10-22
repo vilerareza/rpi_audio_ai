@@ -4,6 +4,7 @@ import time
 import torch
 from TTS.api import TTS
 from tqdm import tqdm
+from pygame import mixer
 
 
 def main(in_file, out_dir):
@@ -25,8 +26,19 @@ def main(in_file, out_dir):
         # Appending fullstop at the end of word
         word = f'{word.strip()}.'
         print(word)
+        
         '''Synthesize speech and write it to wav file'''
         wav = tts.tts_to_file(word, file_path=file_name)
+
+        '''Play the generated file'''
+        mixer.init()
+        # Loading the audio
+        mixer.music.load(file_name)
+        # Setting the volume
+        mixer.music.set_volume(1)
+        # Play the audio file
+        mixer.music.play()
+
         time.sleep(1)
 
 
