@@ -1,0 +1,7 @@
+torch
+torchaudio
+soundfile
+transformers
+TTS
+numpy==1.2.4
+pygame
