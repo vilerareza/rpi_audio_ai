@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # Argument handler
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_file', type = str, required = True)
-    parser.add_argument('--vols', type = str, default='das', required = False)
+    parser.add_argument('--vols', type = int, default=1, required = False)
     
 
     # Parsing
