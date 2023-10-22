@@ -16,7 +16,7 @@ def main(in_file, out_dir):
 
     # Initialize single speaker tts object: tacotron model - english language - ljspeech dataset 
     # The model will be downloaded at the first time
-    tts = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=True).to(device)
+    # tts = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=True).to(device)
 
     for word in tqdm(words):
         # Prepare the file name for audio file
