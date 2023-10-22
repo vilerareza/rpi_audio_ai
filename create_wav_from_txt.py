@@ -12,7 +12,7 @@ def main(in_file, out_dir):
         words = f.readlines()
 
     # Get device type to configure pytorch inference
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Initialize single speaker tts object: tacotron model - english language - ljspeech dataset 
     # The model will be downloaded at the first time
@@ -24,9 +24,10 @@ def main(in_file, out_dir):
         # Generate the audio file
         # Appending fullstop at the end of word
         word = f'{word}.'
+        print(word)
         '''Synthesize speech and write it to wav file'''
-        wav = tts.tts_to_file(word, file_path=file_name)
-        time.sleep(1)
+        #wav = tts.tts_to_file(word, file_path=file_name)
+        #time.sleep(1)
 
 
 if __name__ == '__main__':
