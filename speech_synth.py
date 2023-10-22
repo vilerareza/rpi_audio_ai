@@ -23,6 +23,7 @@ def main(input_text:str, output_file:str = 'speech.wav', play = True, audio_vol 
     '''Synthesize speech and write it to wav file'''
     wav = tts.tts_to_file(input_text, file_path=output_file)
 
+    print (f'PLAY {play}')
     if play:
 
         '''Play the generated speech'''
