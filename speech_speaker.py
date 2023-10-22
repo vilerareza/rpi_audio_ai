@@ -25,10 +25,10 @@ class SpeechSpeaker:
 
     def load(self, audio_path):  
         # Loading the audio
-        try:      
-            self.mixer.music.load(audio_path)    
-        except Exception as e:
-            print (f'Failed to load {audio_path}')
+        #try:      
+        self.mixer.music.load(audio_path)    
+        #except Exception as e:
+        #    print (f'Failed to load {audio_path}')
 
 
     def play(self, audio_vol=7):
