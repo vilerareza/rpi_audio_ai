@@ -1,7 +1,9 @@
 import os
 import argparse
+import time
 import torch
 from TTS.api import TTS
+from tqdm import tqdm
 
 
 def main(in_file, out_dir):
@@ -16,12 +18,13 @@ def main(in_file, out_dir):
     # The model will be downloaded at the first time
     tts = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=True).to(device)
 
-    for word in words:
+    for word in tqdm(words):
         # Prepare the file name for audio file
         file_name = os.path.join(out_dir, f'{word}.wav')
         # Generate the audio file
         '''Synthesize speech and write it to wav file'''
         wav = tts.tts_to_file(word, file_path=file_name)
+        time.sleep(1)
 
 
 if __name__ == '__main__':
