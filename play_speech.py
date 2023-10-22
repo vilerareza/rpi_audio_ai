@@ -41,7 +41,7 @@ if __name__ == '__main__':
     # Path to audio_file
     audio_path = args.file
     # Audio volume
-    audio_vol = args.vol
+    audio_vol = args.vols
 
     # Run
     main(audio_path=audio_path, 
