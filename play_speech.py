@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # Argument handler
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_file', type = str, required = True)
-    parser.add_argument('--vols', type = str, default='das', required = False)
+    parser.add_argument('--vol', type = float, default=0.7, required = False)
     
 
     # Parsing
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     # Path to audio_file
     audio_path = args.input_file
     # Audio volume
-    audio_vol = args.vols
+    audio_vol = args.vol
 
     # Run
     main(audio_path=audio_path, 
