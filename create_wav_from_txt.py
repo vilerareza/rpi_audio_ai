@@ -21,7 +21,7 @@ def main(in_file, out_dir):
 
     for word in tqdm(words):
         # Prepare the file name for audio file
-        file_name = os.path.join(out_dir, f'{word}.wav')
+        file_name = os.path.join(out_dir, f'{word.strip()}.wav')
         # Generate the audio file
         # Appending fullstop at the end of word
         word = f'{word.strip()}.'
