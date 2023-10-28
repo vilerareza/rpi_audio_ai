@@ -36,6 +36,7 @@ def main(model_dir):
                 [word.lower() for word in audio_text]
 
                 if any(word in ['hello', 'hi', 'hey', 'halo'] for word in audio_text):
+                    print ('PLAY')
                     # Initialize pygame mixer
                     mixer.init()
                     # Loading the audio
