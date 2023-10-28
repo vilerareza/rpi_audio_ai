@@ -33,7 +33,11 @@ def main(model_dir):
                 audio_text = speech_recognizer.transcribe(audio_data)
                 print(f"Transcription result: {audio_text.split(' ')}")
                 
+                # String cleaning
                 [word.lower() for word in audio_text]
+                word =  word.replace (',', '')
+                word =  word.replace ('.', '')
+                word =  word.strip()
 
                 if any(word in ['hello', 'hi', 'hey', 'halo'] for word in audio_text):
                     print ('PLAY')
