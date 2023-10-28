@@ -34,10 +34,12 @@ def main(model_dir):
                 print(f"Transcription result: {audio_text.split(' ')}")
                 
                 # String cleaning
-                [word.lower() for word in audio_text]
-                [word.replace(',', '') for word in audio_text]
-                [word.replace ('.', '') for word in audio_text]
-                [word.strip() for word in audio_text]
+                audio_text = [word.lower() for word in audio_text]
+                audio_text = [word.replace(',', '') for word in audio_text]
+                audio_text = [word.replace ('.', '') for word in audio_text]
+                audio_text = [word.strip() for word in audio_text]
+
+                print (audio_text)
 
                 if any(word in ['hello', 'hi', 'hey', 'halo'] for word in audio_text):
                     print ('PLAY')
