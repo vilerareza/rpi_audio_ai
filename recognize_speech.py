@@ -31,7 +31,8 @@ def main(model_dir):
                 # Transcribe
                 print ('transcribing')
                 audio_text = speech_recognizer.transcribe(audio_data)
-                print(f"Transcription result: {audio_text.split(' ')}")
+                audio_text = audio_text.split(' ')
+                print(f"Transcription result: {audio_text}")
                 
                 # String cleaning
                 audio_text = [word.lower() for word in audio_text]
