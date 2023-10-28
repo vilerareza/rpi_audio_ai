@@ -35,9 +35,9 @@ def main(model_dir):
                 
                 # String cleaning
                 [word.lower() for word in audio_text]
-                word =  word.replace (',', '')
-                word =  word.replace ('.', '')
-                word =  word.strip()
+                [word.replace(',', '') for word in audio_text]
+                [word.replace ('.', '') for word in audio_text]
+                [word.strip() for word in audio_text]
 
                 if any(word in ['hello', 'hi', 'hey', 'halo'] for word in audio_text):
                     print ('PLAY')
