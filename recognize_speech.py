@@ -2,6 +2,7 @@ import argparse
 from recognizer import SpeechRecognizer
 import speech_recognition as sr
 import time
+from pygame import mixer
 
 
 def main(model_dir):
@@ -32,6 +33,18 @@ def main(model_dir):
                 audio_text = speech_recognizer.transcribe(audio_data)
                 print(f"Transcription result: {audio_text.split(' ')}")
                 
+                [word.lower() for word in audio_text]
+
+                if any(word in ['hello', 'hi', 'hey', 'halo'] for word in audio_text):
+                    # Initialize pygame mixer
+                    mixer.init()
+                    # Loading the audio
+                    mixer.music.load(audio_path)
+                    # Setting the volume
+                    mixer.music.set_volume(audio_vol)
+                    # Play the audio file
+                    mixer.music.play()
+
                 time.sleep(0.5)
              
     except Exception as e:
