@@ -1,10 +1,12 @@
+import os
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
 import torch
 import torchaudio
 
 model_save_path = 'models/'
-processor_save_path = 'models/'
 
+# Create directory for saving model
+os.makedirs(model_save_path, exist_ok=True)
 
 # Getting device configuration and whisper model name
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -24,4 +26,4 @@ whisper_model = WhisperForConditionalGeneration.from_pretrained(whisper_model_na
 
 # Save the model and the processor
 whisper_model.save_pretrained(model_save_path)
-whisper_processor.save_pretrained(processor_save_path)
+whisper_processor.save_pretrained(model_save_path)
