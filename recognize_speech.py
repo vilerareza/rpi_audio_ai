@@ -39,9 +39,9 @@ def main(model_dir):
                     # Initialize pygame mixer
                     mixer.init()
                     # Loading the audio
-                    mixer.music.load(audio_path)
+                    mixer.music.load('audio/library/my_name.wav')
                     # Setting the volume
-                    mixer.music.set_volume(audio_vol)
+                    mixer.music.set_volume(10)
                     # Play the audio file
                     mixer.music.play()
 
