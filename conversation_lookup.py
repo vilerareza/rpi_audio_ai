@@ -24,19 +24,19 @@ def conversation(words, response_file_dict=response_file_dict):
         return response_file_dict['greeting_1']
     
     # Greeting 2
-    if all(word in ['how', 'are', 'you'] for word in words):
+    elif all(word in ['how', 'are', 'you'] for word in words):
         return response_file_dict['greeting_2']
     
     # Greeting 3
-    if all(word in ['good', 'morning'] for word in words):
+    elif all(word in ['good', 'morning'] for word in words):
         return response_file_dict['greeting_3']
     
     # Greeting 4
-    if all(word in ['good', 'afternoon'] for word in words):
+    elif all(word in ['good', 'afternoon'] for word in words):
         return response_file_dict['greeting_4']
     
     # Greeting 5
-    if all(word in ['good', 'evening'] for word in words):
+    elif all(word in ['good', 'evening'] for word in words):
         return response_file_dict['greeting_5']
     
     return None
