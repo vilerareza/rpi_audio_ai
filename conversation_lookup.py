@@ -38,3 +38,5 @@ def conversation(words, response_file_dict=response_file_dict):
     # Greeting 5
     if all(word in ['good', 'evening'] for word in words):
         return response_file_dict['greeting_5']
+    
+    return None

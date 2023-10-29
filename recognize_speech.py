@@ -49,12 +49,13 @@ def main(model_dir):
                 '''Conversation response'''
                 # Looking up response audio file
                 response_audio = conversation(words)
-                # Loading the audio
-                mixer.music.load(response_audio)
-                # Setting the volume
-                mixer.music.set_volume(10)
-                # Play the audio file
-                mixer.music.play()
+                if response_audio:
+                    # Loading the audio
+                    mixer.music.load(response_audio)
+                    # Setting the volume
+                    mixer.music.set_volume(10)
+                    # Play the audio file
+                    mixer.music.play()
 
                 time.sleep(0.5)
              
