@@ -53,7 +53,7 @@ def main(model_dir):
                 # Looking up response audio file
                 response_audio = conversation(words)
                 if response_audio:
-                    result = subprocess.run(['ffmpeg',
+                    result = subprocess.run(['aplay',
                                              '--format=S16_LE', 
                                              '--rate=16000',
                                              response_audio])
