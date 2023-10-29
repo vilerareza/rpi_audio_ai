@@ -20,23 +20,23 @@ response_file_dict = {
 def conversation(words, response_file_dict=response_file_dict):
     
     # Greeting 1
-    if any(word in ['hello', 'hi', 'hey', 'halo'] for word in words):
+    if set(['hello', 'hi', 'hey', 'halo']).issubset(words):
         return response_file_dict['greeting_1']
     
     # Greeting 2
-    elif any(word in ['how', 'are', 'you'] for word in words):
+    elif set(['how', 'are', 'you']).issubset(words):
         return response_file_dict['greeting_2']
     
     # Greeting 3
-    elif any(word in ['good', 'morning'] for word in words):
+    elif set(['good', 'morning']).issubset(words):
         return response_file_dict['greeting_3']
     
     # Greeting 4
-    elif any(word in ['good', 'afternoon'] for word in words):
+    elif set(['good', 'afternoon']).issubset(words):
         return response_file_dict['greeting_4']
     
     # Greeting 5
-    elif any(word in ['good', 'evening'] for word in words):
+    elif set(['good', 'evening']).issubset(words):
         return response_file_dict['greeting_5']
     
     return None
