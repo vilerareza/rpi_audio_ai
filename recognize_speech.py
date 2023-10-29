@@ -42,6 +42,8 @@ def main(model_dir):
                 words = [word.lower() for word in words]
                 words = [word.replace(',', '') for word in words]
                 words = [word.replace ('.', '') for word in words]
+                words = [word.replace ('?', '') for word in words]
+                words = [word.replace ('!', '') for word in words]
                 words = [word.strip() for word in words]
 
                 print (words)
