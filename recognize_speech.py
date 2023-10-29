@@ -4,6 +4,8 @@ import speech_recognition as sr
 import time
 from pygame import mixer
 
+from conversation_lookup import conversation
+
 
 def main(model_dir):
         
@@ -13,6 +15,8 @@ def main(model_dir):
         speech_recognizer = SpeechRecognizer(model_dir)
         # Initialize sound recognizer module
         r = sr.Recognizer()
+        # Initialize mixer object for playing response audio file
+        mixer.init()
 
         while True:   
 
@@ -30,28 +34,27 @@ def main(model_dir):
                 audio_data = audio_data.get_raw_data()
                 # Transcribe
                 print ('transcribing')
-                audio_text = speech_recognizer.transcribe(audio_data)
-                audio_text = audio_text.split(' ')
-                print(f"Transcription result: {audio_text}")
+                words = speech_recognizer.transcribe(audio_data)
+                words = words.split(' ')
+                print(f"Transcription result: {words}")
                 
                 # String cleaning
-                audio_text = [word.lower() for word in audio_text]
-                audio_text = [word.replace(',', '') for word in audio_text]
-                audio_text = [word.replace ('.', '') for word in audio_text]
-                audio_text = [word.strip() for word in audio_text]
+                words = [word.lower() for word in words]
+                words = [word.replace(',', '') for word in words]
+                words = [word.replace ('.', '') for word in words]
+                words = [word.strip() for word in words]
 
-                print (audio_text)
+                print (words)
 
-                if any(word in ['hello', 'hi', 'hey', 'halo'] for word in audio_text):
-                    print ('PLAY')
-                    # Initialize pygame mixer
-                    mixer.init()
-                    # Loading the audio
-                    mixer.music.load('audio/library/my_name.wav')
-                    # Setting the volume
-                    mixer.music.set_volume(10)
-                    # Play the audio file
-                    mixer.music.play()
+                '''Conversation response'''
+                # Looking up response audio file
+                response_audio = conversation(words)
+                # Loading the audio
+                mixer.music.load(response_audio)
+                # Setting the volume
+                mixer.music.set_volume(10)
+                # Play the audio file
+                mixer.music.play()
 
                 time.sleep(0.5)
              
