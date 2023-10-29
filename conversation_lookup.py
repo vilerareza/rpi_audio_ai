@@ -21,20 +21,20 @@ def conversation(words, response_file_dict=response_file_dict):
     
     # Greeting 1
     if any(word in ['hello', 'hi', 'hey', 'halo'] for word in words):
-        return audio_library_path['greeting_1']
+        return response_file_dict['greeting_1']
     
     # Greeting 2
     if all(word in ['how', 'are', 'you'] for word in words):
-        return audio_library_path['greeting_2']
+        return response_file_dict['greeting_2']
     
     # Greeting 3
     if all(word in ['good', 'morning'] for word in words):
-        return audio_library_path['greeting_3']
+        return response_file_dict['greeting_3']
     
     # Greeting 4
     if all(word in ['good', 'afternoon'] for word in words):
-        return audio_library_path['greeting_4']
+        return response_file_dict['greeting_4']
     
     # Greeting 5
     if all(word in ['good', 'evening'] for word in words):
-        return audio_library_path['greeting_5']
+        return response_file_dict['greeting_5']
