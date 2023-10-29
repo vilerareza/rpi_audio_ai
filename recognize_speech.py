@@ -3,6 +3,7 @@ from recognizer import SpeechRecognizer
 import speech_recognition as sr
 import time
 from pygame import mixer
+import subprocess
 
 from conversation_lookup import conversation
 
@@ -52,12 +53,16 @@ def main(model_dir):
                 # Looking up response audio file
                 response_audio = conversation(words)
                 if response_audio:
-                    # Loading the audio
-                    mixer.music.load(response_audio)
-                    # Setting the volume
-                    mixer.music.set_volume(10)
-                    # Play the audio file
-                    mixer.music.play()
+                    result = subprocess.run(['ffmpeg',
+                                             '--format=S16_LE', 
+                                             '--rate=16000',
+                                             response_audio])
+                    # # Loading the audio
+                    # mixer.music.load(response_audio)
+                    # # Setting the volume
+                    # mixer.music.set_volume(10)
+                    # # Play the audio file
+                    # mixer.music.play()
 
                 time.sleep(0.5)
              
