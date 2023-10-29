@@ -20,7 +20,7 @@ response_file_dict = {
 def conversation(words, response_file_dict=response_file_dict):
     
     # Greeting 1
-    if set(['hello', 'hi', 'hey', 'halo']).issubset(words):
+    if any(word in ['hello', 'hi', 'hey', 'halo'] for word in words):
         return response_file_dict['greeting_1']
     
     # Greeting 2
